@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather forecast app</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ecacecafed.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Red+Hat+Display:wght@300&display=swap"
+        rel="stylesheet">
+    <script src="scripts/moment.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="main">
+        <div class="search-bar">
+            <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input type="text" name="search-bar" id="search" placeholder="search city" />
+        </div>
+        <div class="content">
+            <div class="location">
+                <h1 class="capital">
+                    <span id="city">Ha Noi</span>
+                    <span>,</span>
+                    <span id="country">Viet Nam</span>
+                    <p id="daytime">23-12-2022</p>
+                </h1>
+            </div>
+
+            <div class="weather-icon">
+                <img id="icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" srcset="">
+                <p id="weather-state">rain</p>
+            </div>
+            <div class="temper">
+                <span id="temperture">26</span>
+                <span>°C</span>
+            </div>
+
+        </div>
+
+        <div class="addInfo">
+            <div class="row">
+
+                <div class="label"><i class="fa-solid fa-mountain-sun"> Sunrise</i></div>
+                <div class="value">
+                    <p id="sunrise">6h.16am</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label"><i class="fa-solid fa-sun-plant-wilt"> Sunset</i></div>
+                <div class="value">
+                    <p id="sunset">5h.16 pm</p>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="label"><i class="fa-solid fa-temperature-three-quarters">Humidity</i></div>
+                <div class="value">
+                    <p id="humidity">20 </p>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="label"><i class="fa-solid fa-wind">Wind speed</i></div>
+                <div class="value">
+                    <p id="windspeed">5h.16 pm</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="detail">
+        <nav>
+            <ul class="options">
+                <button class="hourly">Today</button>
+                <button class="hourly">Weekly</button>
+            </ul>
+            <ul class="options item">
+                <button class="celcius">°C</button>
+                <button class="fahrenheit">°F</button>
+            </ul>
+        </nav>
+        <div class="cards" id="weather-cards">
+            <div class="onecard">
+                <h2 class="day-name">Monday</h2>
+
+                <div class="card-icon">
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" srcset="" />
+                </div>
+
+                <div class="day-temp">
+                    <h2 class="temp">32</h2>
+                    <span>°C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts/index.js"></script>
+</body>
+
+</html>
