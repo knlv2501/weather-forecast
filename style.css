@@ -181,7 +181,7 @@ nav .item button{
     margin-top: 10px;
 }
 
-.onecard {
+.firstcard {
     width: 100px;
     height: 130px;
     display: flex;
@@ -193,12 +193,12 @@ nav .item button{
     border-radius: 20px;
 }
 
-.onecard h2 {
+.firstcard h2 {
     font-size: 15px;
     font-weight: 600;
 }
 
-.onecard .card-icon {
+.firstcard .card-icon {
     width: 50%;
     height: 50%;
 }
@@ -208,9 +208,61 @@ nav .item button{
     position: relative;
     top: -15px;
 }
-.onecard .day-temp {
+.firstcard .day-temp {
     font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.highlight {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.highlight .heading {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.highlight .secondcard{
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    background-color: #fff;;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.secondcard .cardcontent{
+    margin-top: 20px;
+}
+
+.secondcard .card-heading {
+    color: #c2c2c2;
+}
+
+.secondcard .card-heading p:first-child{
+    text-align: center;
+    font-size: 30px;
+}
+
+.secondcard .card-heading p:last-child{
+    text-align: left;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.options button.active {
+    color: var(--primary-clr);
+}
+
+.detail nav .item button.active{
+    color: #fff;
+    background-color: black;
 }

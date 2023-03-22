@@ -17,7 +17,7 @@
 <div class="container">
     <div class="main">
         <div class="search-bar">
-            <button>
+            <button id="searchbutton">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
             <input type="text" name="search-bar" id="search" placeholder="search city" />
@@ -38,7 +38,7 @@
             </div>
             <div class="temper">
                 <span id="temperture">26</span>
-                <span>°C</span>
+                <span class ="temp-unit">°C</span>
             </div>
 
         </div>
@@ -81,25 +81,68 @@
         <nav>
             <ul class="options">
                 <button class="hourly">Today</button>
-                <button class="hourly">Weekly</button>
+                <button class="weekly active">Weekly</button>
             </ul>
             <ul class="options item">
-                <button class="celcius">°C</button>
-                <button class="fahrenheit">°F</button>
+                <button id = "celcius" type="button" class="celcius active">°C</button>
+                <button id = "fahrenheit" type="button" class="fahrenheit ">°F</button>
             </ul>
         </nav>
         <div class="cards" id="weather-cards">
-            <div class="onecard">
-                <h2 class="day-name">Monday</h2>
+            
+        </div>
 
-                <div class="card-icon">
-                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" srcset="" />
+        <div class="highlight">
+            <h2 class="heading">Today's highlights</h2>
+            <div class="cards">
+                <div class="secondcard">
+                    <h4 class="card-heading">UV index</h4>
+                    <div class="cardcontent">
+                        <p class="uv-index">0</p>
+                        <p class="uv-text">low</p>
+                    </div>
                 </div>
 
-                <div class="day-temp">
-                    <h2 class="temp">32</h2>
-                    <span>°C</span>
+                <div class="secondcard">
+                    <h4 class="card-heading">UV index</h4>
+                    <div class="cardcontent">
+                        <p class="uv-index">0</p>
+                        <p class="uv-text">low</p>
+                    </div>
                 </div>
+
+                <div class="secondcard">
+                    <h4 class="card-heading">UV index</h4>
+                    <div class="cardcontent">
+                        <p class="uv-index">0</p>
+                        <p class="uv-text">low</p>
+                    </div>
+                </div>
+
+                <div class="secondcard">
+                    <h4 class="card-heading">UV index</h4>
+                    <div class="cardcontent">
+                        <p class="uv-index">0</p>
+                        <p class="uv-text">low</p>
+                    </div>
+                </div>
+
+                <div class="secondcard">
+                    <h4 class="card-heading">UV index</h4>
+                    <div class="cardcontent">
+                        <p class="uv-index">0</p>
+                        <p class="uv-text">low</p>
+                    </div>
+                </div>
+
+                <div class="secondcard">
+                    <h4 class="card-heading">UV index</h4>
+                    <div class="cardcontent">
+                        <p class="uv-index">0</p>
+                        <p class="uv-text">low</p>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
