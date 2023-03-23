@@ -3,6 +3,7 @@ let celorfah = "c";
 let weekflag = true;
 let data;
 let detail;
+let keysearch ="hanoi";
 
 const searchInput = document.querySelector('#search');
 const searchButton = document.querySelector('#searchbutton');
@@ -26,6 +27,7 @@ const windspeed = document.querySelector('#windspeed');
 const body = document.querySelector('body');
 const tempUnit = document.querySelectorAll('.temp-unit');
 const weatherCards = document.querySelector("#weather-cards");
+const forecastCard = document.querySelector("#forecast-card");
 
 searchButton.addEventListener('click', (e) => {
     getDataWeather(search.value);
@@ -40,6 +42,7 @@ function getDataWeather(input) {
         .then(async res => {
             data = await res.json();
             if (data.cod == 200) {
+                keysearch = input;
                 setdataMain(data);
                 fetch(`https://openweathermap.org/data/2.5/onecall?lat=${data.list[0].coord.lat}&lon=${data.list[0].coord.lon}&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02`)
                     .then(async res => {
@@ -84,6 +87,7 @@ function setdataDetail(detdata) {
 }
 
 function forecastUpdate(detaildata, checkweek) {
+    
     weatherCards.innerHTML = '';
     let arrdata;
     if (checkweek) {
@@ -112,6 +116,7 @@ function forecastUpdate(detaildata, checkweek) {
             tempValue = Math.round(tempValue * 1.8 + 32);
         }
         newcard.innerHTML = `
+            <div class="pointer" id="${i}">
                  <h2 class="day-name">${dayName}</h2>
 
                 <div class="card-icon">
@@ -122,10 +127,13 @@ function forecastUpdate(detaildata, checkweek) {
                     <h2 class="temp">${tempValue}</h2>
                     <span class ="temp-unit">${tempUnit}</span>
                 </div>
+            </div>
 
 `;
         weatherCards.appendChild(newcard);
+        
     }
+    forecastDetail(checkweek,arrdata);
 }
 
 hourlyButton.addEventListener('click', (e) => {
@@ -144,7 +152,7 @@ function changeTime(kindTime) {
     if (weekflag !== kindTime) {
         weekflag = kindTime;
     }
-    getDataWeather(search.value);
+    getDataWeather(keysearch);
 }
 
 celButton.addEventListener('click', (e) => {
@@ -166,6 +174,60 @@ function changeTemp(unit) {
             element.innerText = `°${unit.toUpperCase()}`
         });
     }
-    getDataWeather(search.value);
+    getDataWeather(keysearch); 
 }
+let arrItem = ["sunrise","sunset","humidity","wind_speed","moonrise","moonset","dew_point","uvi"];
+
+
+function forecastDetail(checkweek,detaildata) {
+    forecastCard.innerHTML = "";
+    if (checkweek) {
+
+        let arrFirstcard = document.querySelectorAll('.firstcard');
+        for (let i = 0; i < arrFirstcard.length ; i ++){
+            arrFirstcard[i].addEventListener('click',(e) => {
+                arrFirstcard[i].classList.add('active');
+                setdetaidayonweekdata(i,detaildata[i]);
+            })
+        }
+
+        for (i = 0; i < arrItem.length; i++) {
+            let ncard = document.createElement("div");
+            ncard.classList.add("secondcard");
+            let idcard = `${arrItem[i]}text`;
+            ncard.innerHTML = `
+    
+        <h4 class="card-heading">${arrItem[i]}</h4>
+        <div class="cardcontent">
+            <p id="${idcard}">0</p>
+            </div>
+        `;
+
+            forecastCard.appendChild(ncard);
+        }
+    }else {
+        let ncard = document.createElement("h2");
+            ncard.innerHTML = "";
+            ncard.innerHTML = `<h2 class="heading">knlv2501</h2>`;
+            forecastCard.appendChild(ncard);
+    }
+}
+
+function setdetaidayonweekdata(index, dedata) {
+    let valueText;
+    for(i=0; i< arrItem.length; i++)
+    {
+        valueText = document.querySelector(`#${arrItem[i]}text`);
+        
+        if(arrItem[i] == "humidity" || arrItem[i] == "wind_speed" 
+                || arrItem[i] == "dew_point" || arrItem[i] =="uvi"){
+            valueText.innerHTML = `${dedata[arrItem[i]]}`;
+        }else {
+            valueText.innerHTML = moment.unix(dedata[arrItem[i]]).format('H:mm a');
+        }
+        
+    }
+}
+
+getDataWeather(keysearch);
 

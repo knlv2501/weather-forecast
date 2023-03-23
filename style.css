@@ -230,8 +230,8 @@ nav .item button{
 }
 
 .highlight .secondcard{
-    width: 250px;
-    height: 150px;
+    width: 180px;
+    height: 100px;
     border-radius: 20px;
     background-color: #fff;;
     padding: 10px 20px;
@@ -265,4 +265,12 @@ nav .item button{
 .detail nav .item button.active{
     color: #fff;
     background-color: black;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.firstcard .active{
+    background-color: aquamarine;
 }
